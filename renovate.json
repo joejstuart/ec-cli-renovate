@@ -3,7 +3,7 @@
   "extends": [
     "github>konflux-ci/mintmaker//config/renovate/renovate.json",
     "config:best-practices",
-    "disableDependencyDashboard"
+    ":disableDependencyDashboard"
   ],
   "timezone": "America/New_York",
   "schedule": ["before 10pm"],
