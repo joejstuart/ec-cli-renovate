@@ -9,8 +9,18 @@
   "baseBranches": ["main"],
   "packageRules": [
     {
+      "matchManagers": ["dockerfile"],
+      "matchPackageNames": ["docker.io/library/golang"],
+      "enabled": false
+    },
+    {
       "matchManagers": ["gomod"],
       "matchPackageNames": ["go"],
+      "enabled": false
+    },
+    {
+      "matchManagers": ["asdf"],
+      "matchPackageNames": ["golang"],
       "enabled": false
     },
     {
