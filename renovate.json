@@ -9,9 +9,32 @@
   "baseBranches": ["main"],
   "packageRules": [
     {
+      "matchManagers": ["asdf"],
+      "groupName": "asdf Updates"
+    },
+    {
+      "matchManagers": ["dockerfile"],
+      "groupName": "Dockerfile Updates"
+    },
+    {
       "matchManagers": ["gomod"],
-      "matchPackageNames": ["go"],
-      "enabled": false
+      "groupName": "Gomod Updates"
+    },
+    {
+      "matchManagers": ["kustomize"],
+      "groupName": "Kustomize Updates"
+    },
+    {
+      "matchManagers": ["pre-commit"],
+      "groupName": "Pre-commit Updates"
+    },
+    {
+      "matchManagers": ["tekton"],
+      "groupName": "Tekton Updates"
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
     }
   ]
 }
