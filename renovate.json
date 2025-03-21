@@ -6,7 +6,7 @@
   ],
   "timezone": "America/New_York",
   "schedule": ["before 10pm"],
-  "baseBranches": ["main", "release-v0.5", "release-v0.6"],
+  "baseBranches": ["main"],
   "packageRules": [
     {
       "matchManagers": ["gomod"],
