@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>konflux-ci/mintmaker//config/renovate/renovate.json",
-    "config:best-practices"
+    "config:best-practices",
+    "disableDependencyDashboard"
   ],
   "timezone": "America/New_York",
   "schedule": ["before 10pm"],
