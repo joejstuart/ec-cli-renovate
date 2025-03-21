@@ -1,15 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>konflux-ci/mintmaker//config/renovate/renovate.json"],
+  "extends": [
+    "github>konflux-ci/mintmaker//config/renovate/renovate.json",
+    "config:best-practices"
+  ],
   "timezone": "America/New_York",
   "schedule": ["before 10pm"],
-  "enabledManagers": ["asdf", "tekton", "github-actions"],
   "baseBranches": ["main", "release-v0.5", "release-v0.6"],
-  "github-actions": {
-    "enabled": true,
-    "schedule": ["before 10pm"],
-    "separateMinorPatch": true,
-    "groupName": "GitHub Actions Updates"
-  }
+  "packageRules": [
+    {
+      "matchManagers": ["gomod"],
+      "matchPackageNames": ["go"],
+      "enabled": false
+    }
+  ]
 }
-
