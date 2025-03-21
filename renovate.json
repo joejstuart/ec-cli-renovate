@@ -10,17 +10,17 @@
   "packageRules": [
     {
       "matchManagers": ["dockerfile"],
-      "matchPackageNames": ["docker.io/library/golang"],
+      "matchDepNames": ["docker.io/library/golang"],
       "enabled": false
     },
     {
       "matchManagers": ["gomod"],
-      "matchPackageNames": ["go"],
+      "matchDepNames": ["go"],
       "enabled": false
     },
     {
       "matchManagers": ["asdf"],
-      "matchPackageNames": ["golang"],
+      "matchDepNames": ["golang"],
       "enabled": false
     },
     {
