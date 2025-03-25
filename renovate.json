@@ -4,6 +4,7 @@
     "github>konflux-ci/mintmaker//config/renovate/renovate.json"
   ],
   "baseBranches": ["main", "release-v0.5", "release-v0.6"],
+  "schedule": ["at any time"],
   "packageRules": [
     {
       "matchManagers": ["dockerfile"],
