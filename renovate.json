@@ -4,7 +4,7 @@
     "github>konflux-ci/mintmaker//config/renovate/renovate.json",
     "github>conforma/.github//config/renovate/renovate.json"
   ],
-  "baseBranches": ["main", "release-v0.5", "release-v0.6"]
+  "baseBranches": ["main", "release-v0.5", "release-v0.6"],
   "packageRules": [
     {
       "matchManagers": ["gomod"],
