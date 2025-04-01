@@ -1,37 +1,38 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>konflux-ci/mintmaker//config/renovate/renovate.json"
+    "github>konflux-ci/mintmaker//config/renovate/renovate.json",
+    "github>conforma/.github//config/renovate/renovate.json"
   ],
-  "baseBranches": ["main", "release-v0.5", "release-v0.6"],
-  "schedule": ["at any time"],
+  "baseBranches": ["main", "release-v0.5", "release-v0.6"]
   "packageRules": [
-    {
-      "matchManagers": ["dockerfile"],
-      "matchDepNames": ["docker.io/library/golang"],
-      "enabled": false
-    },
     {
       "matchManagers": ["gomod"],
       "matchDepNames": ["go"],
-      "enabled": false
+      "updateTypes": ["minor", "patch"],
+      "groupName": "Go version updates"
+    },
+    {
+      "matchManagers": ["gomod"],
+      "excludePackageNames": ["go"],
+      "groupName": "Go module updates"
     },
     {
       "matchManagers": ["asdf"],
       "matchDepNames": ["golang"],
-      "enabled": false
-    },
-    {
-      "matchManagers": ["asdf"],
-      "groupName": "asdf Updates"
+      "updateTypes": ["minor", "patch"],
+      "groupName": "asdf updates"
     },
     {
       "matchManagers": ["dockerfile"],
-      "groupName": "Dockerfile Updates"
+      "matchDepNames": ["docker.io/library/golang"],
+      "updateTypes": ["minor", "patch"],
+      "groupName": "Go Docker updates"
     },
     {
-      "matchManagers": ["gomod"],
-      "groupName": "gomod Updates"
+      "matchManagers": ["dockerfile"],
+      "excludePackageNames": ["docker.io/library/golang"],
+      "groupName": "Docker updates"
     }
   ]
 }
