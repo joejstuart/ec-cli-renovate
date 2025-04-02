@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  // some sane defaults and recommened defaults
   "extends": [
     "config:recommended",
     ":gitSignOff",
@@ -12,25 +13,37 @@
     "enabled": true
   },
   "timezone": "America/New_York",
+  // just apply updates during the work week
   "schedule": ["* * * * 1-5"],
   "packageRules": [
+    // Only allow patch updates for go and toolchain in the go.mod file.
+    // This applies to all go.mod files in a repo.
+    // This is treated different than the rest of the gomod deps, because
+    // we only want patch updates.
     {
       "matchManagers": ["gomod"],
-      "matchDepNames": ["go"],
+      "matchDepNames": ["go", "toolchain"],
       "updateTypes": ["patch"],
       "groupName": "Go version updates"
     },
+    // Group all dependencies in a go.mod file into one PR.
+    // This exclude go and toolchain because of the item above.
     {
       "matchManagers": ["gomod"],
-      "excludePackageNames": ["go"],
+      "excludePackageNames": ["go", "toolchain"],
       "groupName": "Go module updates"
     },
+    // Allow only patch updates for golang in the asdf module.
     {
       "matchManagers": ["asdf"],
       "matchDepNames": ["golang"],
       "updateTypes": ["patch"],
       "groupName": "asdf updates"
     },
+    // Since we only allow patch updates for the go binary, we want the same
+    // for the golang image.
+    // We also get image updates replacing the a tag vX.X.X with vX.X.X-timestamp.
+    // We don't want both, so we ignore the - in a tag.
     {
       "matchManagers": ["dockerfile"],
       "matchDepNames": ["docker.io/library/golang"],
@@ -38,6 +51,7 @@
       "ignoreVersions": [".*-.*"],
       "groupName": "Go Docker updates"
     },
+    // This pertains to all Dockerfile and Containerfile updates except golang images.
     {
       "matchManagers": ["dockerfile"],
       "excludePackageNames": ["docker.io/library/golang"],
