@@ -237,7 +237,7 @@ require (
 	github.com/golangci/misspell v0.6.0 // indirect
 	github.com/golangci/plugin-module-register v0.1.1 // indirect
 	github.com/golangci/revgrep v0.5.3 // indirect
-	github.com/golangci/unconvert v0.0.0-20240309020433-c5143eacb3ed // indirect
+	github.com/golangci/unconvert a129a6e6413e // indirect
 	github.com/google/btree v1.1.3 // indirect
 	github.com/google/cel-go v0.21.0 // indirect
 	github.com/google/certificate-transparency-go v1.2.1 // indirect
